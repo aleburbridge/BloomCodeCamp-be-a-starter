@@ -14,6 +14,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     CustomPasswordEncoder passwordEncoder;
     @Override
+    // In order to return user when UserDetails is required, had to update User class to implement UserDetails
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = new User();
         user.setUsername(username);
