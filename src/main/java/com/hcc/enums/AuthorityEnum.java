@@ -1,2 +1,7 @@
-package com.hcc.enums;public class AuthorityEnum {
+package com.hcc.enums;
+
+public enum AuthorityEnum {
+    STUDENT,
+    INSTRUCTOR,
+    ADMIN
 }

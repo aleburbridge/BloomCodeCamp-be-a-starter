@@ -1,14 +1,30 @@
 package com.hcc.DTOs;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+public class AuthCredentialRequest {
+    private String username;
+    private String password;
 
-public enum AddCredentialRequest {
-    CREDENTIAL_1("abc");
+    public AuthCredentialRequest() {
+    }
 
-    private String securityKey;
+    public AuthCredentialRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
-    AddCredentialRequest(String securityKey) {
-        this.securityKey = securityKey;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

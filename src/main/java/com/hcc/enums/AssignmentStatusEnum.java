@@ -1,2 +1,7 @@
-package com.hcc.enums;public class AssignmentStatusEnum {
+package com.hcc.enums;
+
+public enum AssignmentStatusEnum {
+    SUBMITTED,
+    REVIEWED,
+    GRADED
 }

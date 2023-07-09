@@ -20,4 +20,6 @@ public class Assignment {
         this.reviewVideoUrl = reviewVideoUrl;
         this.user = user;
     }
+
+
 }
