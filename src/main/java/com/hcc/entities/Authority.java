@@ -4,15 +4,19 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
-// need to update, only creating to not cause errors with User
 @Entity
-@Table(name = "greetings")
+@Table(name = "authorities")
 public class Authority implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "authority", nullable = false, length = 50)
     private String authority;
-    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User userObject;
 
     public Authority(String authority) {
         this.authority = authority;
@@ -21,5 +25,8 @@ public class Authority implements GrantedAuthority {
     @Override
     public String getAuthority() {
         return null;
+    }
+
+    public void setId(Long id) {
     }
 }

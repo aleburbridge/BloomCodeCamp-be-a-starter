@@ -11,18 +11,23 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user_table")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "cohort_start_date")
     private Date cohortStartDate;
+
+    @Column(name = "username", nullable = false, length = 20)
     private String username;
+
+    @Column(name = "password", nullable = false, length = 20)
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userObject")
     private List<Authority> authorities;
 
     public User() {
@@ -35,7 +40,7 @@ public class User implements UserDetails {
         this.authorities = authorities;
     }
 
-    // Implementations for UserDetails methods
+    // UserDetails methods
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -79,5 +84,8 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setId(Long id) {
     }
 }
